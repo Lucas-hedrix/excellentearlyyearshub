@@ -1148,3 +1148,57 @@ header {
     text-align: justify;
 }
 
+.founder-img{
+    border-radius: 50%;
+    display: flex;
+
+}
+
+/* ================================
+   ABOUT THE FOUNDER
+   ================================ */
+
+.about-founder {
+    padding: 80px 0;
+}
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.founder-text p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #333;
+    margin-bottom: 18px;
+}
+
+/* Founder image */
+.founder-image {
+    width: 100%;
+    max-width: 380px;
+    margin-left: auto;
+}
+
+.founder-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    object-fit: cover;
+    background: #eaeaea; /* visible even before real image */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .founder-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .founder-image {
+        margin: 30px auto 0;
+        max-width: 320px;
+    }
+}
