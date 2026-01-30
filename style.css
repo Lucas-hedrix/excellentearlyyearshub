@@ -1148,6 +1148,45 @@ header {
     text-align: justify;
 }
 
+/* ================================
+   WHY CHOOSE US – TEXT + IMAGE
+   ================================ */
+
+.why-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+}
+
+.why-text {
+    max-width: 900px;
+}
+
+.why-image img {
+    width: 200px;
+    height:200px;
+}
+
+
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+    .why-content {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .why-image {
+        margin-top: 20px;
+    }
+
+    .why-image img {
+        width: 60px;
+    }
+}
+
+
 .founder-img{
     border-radius: 50%;
     display: flex;
