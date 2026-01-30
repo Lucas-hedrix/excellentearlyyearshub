@@ -1168,6 +1168,9 @@ header {
     height:200px;
 }
 
+.why-image {
+    flex-shrink: 0;
+}
 
 
 /* Responsive: stack on mobile */
@@ -1177,14 +1180,11 @@ header {
         text-align: left;
     }
 
-    .why-image {
-        margin-top: 20px;
-    }
-
-    .why-image img {
-        width: 60px;
-    }
+   .why-image {
+        display: none;
+   }
 }
+
 
 
 .founder-img{
