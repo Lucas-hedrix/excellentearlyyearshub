@@ -1189,11 +1189,7 @@ header {
 
 
 
-.founder-img{
-    border-radius: 50%;
-    display: flex;
 
-}
 
 /* ================================
    ABOUT THE FOUNDER
@@ -1242,4 +1238,146 @@ header {
         margin: 30px auto 0;
         max-width: 320px;
     }
+}
+
+/* =====================================
+   ABOUT FOUNDER – MOBILE IMAGE-FOCUSED MODE
+   ===================================== */
+
+@media (max-width: 768px) {
+
+    /* Hide separate image block */
+    .founder-image {
+        display: none;
+    }
+
+    /* Text container with image dominant */
+    .founder-text {
+        position: relative;
+        padding: 70px 30px;
+        border-radius: 18px;
+
+        background-image: url("fouder.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        overflow: hidden;
+    }
+
+    /* Text pushed visually backward */
+    .founder-text p {
+        position: relative;
+        z-index: 1;
+        color: rgba(255, 255, 255, 0.7);
+        opacity: 0.7;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    }
+
+    .founder-text strong {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* Very light vignette – does NOT block image */
+    .founder-text::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at center,
+            rgba(0,0,0,0.05),
+            rgba(0,0,0,0.35)
+        );
+        z-index: 0;
+        pointer-events: none;
+    }
+}
+
+/* ================================
+   ABOUT FOUNDER – DESKTOP
+   ================================ */
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* text | image */
+    gap: 50px;
+    align-items: center;
+}
+
+.founder-text {
+    order: 1;
+}
+
+.founder-image {
+    order: 2;
+}
+
+.founder-image img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+/* ================================
+   ABOUT FOUNDER – MOBILE BACKGROUND
+   ================================ */
+
+@media (max-width: 768px) {
+    .founder-grid {
+        display: block;
+        position: relative;
+    }
+
+    .founder-image {
+        display: none;                  /* hide the separate img element */
+    }
+
+    
+    .founder-text {
+        position: relative;
+        min-height: 520px;              /* adjust this if image feels too short/tall */
+        padding: 80px 28px 100px;       /* top padding moves text down a bit */
+        border-radius: 20px;
+        overflow: hidden;
+        background: url("fouder.png") center center / cover no-repeat;
+        box-shadow: 0 15px 45px rgba(0,0,0,0.28);
+    }
+
+    .founder-text::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.54);   /* ← main darkness control – 0.48 = brighter image, 0.62 = darker/more readable */
+        z-index: 1;
+    }
+
+    .founder-text > * {
+        position: relative;
+        z-index: 2;
+        color: white !important;
+        text-shadow: 0 1.5px 5px rgba(0,0,0,0.75);
+    }
+
+    .founder-text p {
+        margin-bottom: 1.5em;
+        font-size: 1.05rem;
+        line-height: 1.78;
+    }
+
+    .founder-text strong {
+        color: white !important;
+    }
+}
+
+/* Typewriter base */
+.typewriter {
+    opacity: 0;
+    white-space: normal;
+}
+
+/* Improve text contrast everywhere the typewriter runs on dark background */
+.typewriter strong,
+.typewriter p {
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }

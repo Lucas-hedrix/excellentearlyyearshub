@@ -93,4 +93,45 @@ mobileMenu?.addEventListener('click', (e) => {
         });
     
 
-        
+        document.addEventListener("DOMContentLoaded", () => {
+    const typeBlocks = document.querySelectorAll(".typewriter");
+
+    let started = false;
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !started) {
+                started = true;
+                startTyping();
+            }
+        });
+    }, { threshold: 0.4 });
+
+    if (typeBlocks.length) {
+        observer.observe(typeBlocks[0]);
+    }
+
+    function startTyping() {
+        let delay = 0;
+
+        typeBlocks.forEach(block => {
+            const text = block.innerHTML;
+            block.innerHTML = "";
+            block.style.opacity = 1;
+
+            let i = 0;
+
+            setTimeout(() => {
+                const interval = setInterval(() => {
+                    block.innerHTML += text.charAt(i);
+                    i++;
+                    if (i >= text.length) {
+                        clearInterval(interval);
+                    }
+                }, 25);
+            }, delay);
+
+            delay += text.length * 25 + 300;
+        });
+    }
+});
