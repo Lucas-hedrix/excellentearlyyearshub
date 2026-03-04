@@ -54,25 +54,47 @@ mobileMenu?.addEventListener('click', (e) => {
             });
         });
         
-        // Scroll Animation
-        const fadeElements = document.querySelectorAll('.fade-in');
+// Page Loader Overlay
+const loader = document.getElementById('pageLoader');
+
+if (loader) {
+    // Prevent scrolling while loading
+    document.body.style.overflow = 'hidden';
+    
+    // Hide loader after 3 seconds no matter what
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore scrolling
+        document.body.classList.remove('loading');
+    }, 3000); // 3 seconds
+    
+    // Also remove loading class and loader when window fully loads
+    window.addEventListener('load', () => {
+        // Option: we can keep it strictly 3s or hide immediately if load is faster.
+        // Let's stick to the user request: "3s loading screen"
+    });
+}
         
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-        
-        // Initial check
-        fadeInOnScroll();
-        
-        // Check on scroll
-        window.addEventListener('scroll', fadeInOnScroll);
+// Scroll Animation
+const fadeElements = document.querySelectorAll('.fade-in');
+
+// Use modern IntersectionObserver for scroll animations (more performant)
+const scrollObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Only animate once
+        }
+    });
+}, {
+    root: null,
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+});
+
+fadeElements.forEach(element => {
+    scrollObserver.observe(element);
+});
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
