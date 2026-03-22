@@ -339,6 +339,82 @@ header {
 
 
 /* ────────────────────────────────────────
+   Why Choose Us Section
+───────────────────────────────────────── */
+.why-choose-us {
+    padding: 100px 0;
+    position: relative;
+}
+
+.why-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.glass-board {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    text-align: center;
+}
+
+.glass-board .intro-text {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: var(--dark-color);
+}
+
+.fancy-bullet-list {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+}
+
+.fancy-bullet-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 1.05rem;
+    color: var(--dark-color);
+}
+
+.fancy-bullet-list li i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.why-image {
+    display: flex;
+    justify-content: center;
+}
+
+.why-image img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.why-image img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 992px) {
+    .why-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ────────────────────────────────────────
    Programs Section (added)
 ───────────────────────────────────────── */
 .programs {
