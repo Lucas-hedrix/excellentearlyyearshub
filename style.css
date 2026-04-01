@@ -267,8 +267,11 @@ header {
     width: 80%;
     max-width: 320px;
     height: 100vh;
-    background: white;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
     z-index: 9999;
     transition: right 0.4s ease;
     overflow-y: auto;
@@ -280,7 +283,7 @@ header {
 
 .mobile-menu-header {
     padding: 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -302,7 +305,7 @@ header {
 }
 
 .mobile-menu a:hover {
-    background: rgba(67, 97, 238, 0.08);
+    background: rgba(255, 255, 255, 0.2);
     color: var(--primary-color);
 }
 
@@ -317,13 +320,16 @@ header {
 
 .mobile-menu-btn {
     display: none;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: var(--primary-color);
     width: 50px;
     height: 50px;
     border-radius: 50%;
     font-size: 1.3rem;
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* ────────────────────────────────────────
